@@ -3,7 +3,10 @@ import pandas
 from datetime import datetime
 import pytz
 
+# Set the date and time
 st.write(datetime(2023, 5, 27, 12, 38, tzinfo=pytz.timezone("EST")))
+
+# Make two columns for the image and info
 col1, col2 = st.columns(2)
 with col1:
     light_title = st.title(':violet[Hey! It is me Naqme :sunglasses:]')
@@ -23,7 +26,8 @@ Join me on this exciting journey as I explore the intersections of biotechnology
 
 with col2:
     st.image('images/Me.png', width=700 )
-
+    
+#make columns for images
 col3, col4, col5 = st.columns([1.5, 2.0, 1.5])
 
 col6, col7, col8 = st.columns([1.5, 1.5, 1.5])
@@ -34,26 +38,27 @@ with col6:
 with col7:
     st.image('images/trep.png', caption='Beautiful Treptower park, Berlin.')
 
+# Make a selectbox to choose from
 st.title(':violet[My Journey]')
 my_journey = st.selectbox('Please choose one: ', options = ['My Education', 'My Experience'])
 
 if my_journey == 'My Education':
         df = pandas.read_csv('files/education.csv', sep=';', index_col='name')
- 
         st.write(df)
         
 elif my_journey == 'My Experience':
         df1 = pandas.read_csv('files/experience.csv', sep=';', index_col='where')
         st.write(df1)
-        
+
+# Make checkbox for stay in touch section
 st.subheader('Would you like to stay in touch?')           
 st.subheader('Then ping me in :earth_americas:')
-email= st.checkbox('LinkedIn')
+email= st.checkbox('Email')
 if email:
-    st.write('You can find me under this name on LinkedIn: Nagmeh Naderi')
-linkedin = st.checkbox('Email')
-if linkedin:
     st.write('My gmail address is: naderi.nagmeh@gmail.com')
+linkedin = st.checkbox('LinkedIn')
+if linkedin:
+    st.write('You can find me under this name on LinkedIn: Nagmeh Naderi')
 gitHub = st.checkbox('github')
 if gitHub:
     st.write('My github link is: https://github.com/Nag-Nad/python')
